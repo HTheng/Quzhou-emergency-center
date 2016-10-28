@@ -75,7 +75,7 @@
         </tr>
     </table>
       <div>
-   		<div style="width:334px; float:left;">
+   		<div style="width:334px; height:auto; float:left;">
         	<div class="ind_title">>中心简介</div>
             <div class="ind_img_01"></div>
             <div class="ind_notice">
