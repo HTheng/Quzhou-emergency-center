@@ -14,6 +14,13 @@
 <META name="Description" content="<%=SiteDes%>">
 <meta name="Author" content="<%=SiteAuthor%>" />
 <title><%=SiteName%></title>
+<style>
+  dl { width:662px;height:234px; overflow:hidden;  }
+  dd {   margin:0;width:662px;height:234px;overflow:hidden;  }
+   dt {   position:absolute;left:3px;top:50px;  }
+ /* a { float:left; display:block;margin:1px;width:20px;height:20px;text-align:center;font:700 12px/20px "宋体",sans-serif;color:#fff;text-decoration:none;background:#666;border:1px solid #fff;filter:alpha(opacity=40);opacity:.4;   }
+   a:hover {background:#000}*/
+</style>
 
 </head>
 <body>
@@ -22,7 +29,45 @@
 	<div class="index_body">
     <table width="1004" border="0" cellspacing="0" cellpadding="0">
         <tr>
-        <td width="662"><img src="images/ind_img.gif" width="662" height="234" /></td>
+        <td width="662"><dl>
+              <%
+                         set rs=server.CreateObject("ADODB.Recordset")
+                         sql="select * from SiteAds"
+                         rs.open sql,conn,1,1
+                         Dim Page10
+                            Page10=Request("Page")                            
+                            PageSize =8                        
+                            Rs.PageSize = PageSize               
+                            Total=Rs.RecordCount               
+                            PGNum=Rs.PageCount               
+                            If Page10="" Or clng(Page10)<1 Then Page10=1               
+                            If Clng(Page10) > PGNum Then Page10=PGNum              
+                            If PGNum>0 Then Rs.AbsolutePage=Page10                         
+                            k=0   
+                            if Total=0 then
+                            response.Write("<li>") 
+                            response.Write("无记录...") 
+                            response.Write("</li>")
+                            else
+							 response.Write("<dd>") 
+                             if not(rs.eof and rs.bof)  then
+                             do while not rs.eof And k<Rs.PageSize
+                        %>  
+                            <img src="<%=rs("AdsPicUrl")%>" alt="" id="<%=rs("AdsRemark")%>" width="662" height="234" />
+                         <%
+						 response.Write("</dd>") 
+                            k=k+1
+                            if k mod 1=0 then
+                            end if
+                            rs.movenext()
+                            If Rs.Eof Then Exit Do
+                            loop
+                            end if
+                            end if
+                        %>
+        
+        </dl>
+     </td>
         <td width="342" valign="top">
         <div class="ind_title"><div style=" margin-left:4px;">>通知公告</div></div>
          <div class="ind_notice">

@@ -1,30 +1,40 @@
-﻿<script type="text/javascript">
-$(document).ready(function(){
-  $('li.mainlevel').mousemove(function(){
-  $(this).find('ul').slideDown();
-  });
-  $('li.mainlevel').mouseleave(function(){
-  $(this).find('ul').slideUp("fast");
-  }); 
-});
-
-</script>
-	
-    <table width='1200' border='0' align='center' cellpadding='0' cellspacing='0' style=" background: url(images/ind/top_bg.gif) repeat-y;">
-	<tr><td width='587' align="right"><img src="/Images/ind/logo.gif" width="489" height="110" /></td>
-	<td align="right" valign="bottom">
-	  <div class="r_120"><img src="/Images/ind/r_120.gif" width="354" height="42" /></div>
-	</td>
-   </tr></table>
+﻿<table width='1200' border='0' align='center' cellpadding='0' cellspacing='0' style=" background: url(images/ind/top_bg.gif) repeat-y;">
+<tr><td width='587' align="right"><img src="/Images/ind/logo.gif" width="489" height="110" /></td>
+<td align="right" valign="bottom">
+<div class="r_120"><img src="/Images/ind/r_120.gif" width="354" height="42" /></div>
+</td>
+</tr></table>
 
 <table width=1200  height=40  border=0  cellpadding=0 cellspacing=0 align=center >
-
 <tr><td>
-<div class='blue'><div id='slatenav'>
+ <div class='blue'><div id='slatenav'>
   <ul id="nav">
       <li><a href="Index.asp"  title="">网站首页</a></li>
      <li><a href="About.asp"  title="">中心简介</a>
-     
+        <ul>
+			  <%
+					  set rs=server.CreateObject("ADODB.Recordset")
+					  sql="select * from User_PageCategory where User_NavParent=43 "
+					  rs.open sql,conn,1,1
+					  Total=Rs.RecordCount
+					  if Total=0 then
+					  response.Write("<li>") 
+					  response.Write("无记录...") 
+					  response.Write("</li>")
+					  else
+					  if not(rs.eof and rs.bof) then
+					  do while not rs.eof
+					 %>
+            <li title="<%=rs("User_NavTitle")%>" target="_self"><a href="About.asp?classid=<%=rs("ID")%>"><%=rs("User_NavTitle")%></a></li>
+                   <%
+					rs.movenext()
+					If rs.Eof Then Exit Do
+					loop
+					end if
+					end if 
+				   %>
+		</ul>
+
      </li>
            
      <li><a href="Dynamic.asp"  title="">急救动态</a></li>
@@ -38,6 +48,7 @@ $(document).ready(function(){
 	</ul>
   </div></div>
 </td></tr></table>
+
  
 <div id="flow_wbox">
             这是一个悬浮窗口
