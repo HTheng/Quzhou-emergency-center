@@ -25,9 +25,7 @@
 <title><%=SiteName%></title>
 </head>
 <body>
-    <div id="flow_wbox">
-            这是一个悬浮窗口
-    </div>
+
 <!--#include file="Include/head.asp"-->
 <div style="width:1004px; margin:8px auto;"><img src="Images/ind/banner2.gif" width="1004" height="137" /></div>
 

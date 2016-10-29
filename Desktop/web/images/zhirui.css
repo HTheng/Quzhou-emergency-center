@@ -1,0 +1,11 @@
+HTML {
+	WIDTH: 100%; HEIGHT: auto; 
+}
+BODY {
+	FONT: 12px/20px Tahoma, "ËÎÌו", Helvetica, Arial, sans-serif; HEIGHT: auto; COLOR: #333;margin-left: 0px;margin-top: 0px;margin-right: 0px;margin-bottom: 0px; height:line-height: 25px; position:relative;
+}
+td,th {font-family: "ËÎÌו";font-size: 12px;line-height: 25px;color: #333333;text-decoration: none;}
+
+* li{list-style:none;}
+a{text-decoration:none;color:#20537A;}
+a:hover{text-decoration:underline;}

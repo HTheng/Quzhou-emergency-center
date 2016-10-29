@@ -1,0 +1,9 @@
+@charset "utf-8";
+.footer {
+	width:1000px; height:63px;
+}
+.line{width:1000px; height:8px; background:url(../images/line01.jpg) no-repeat;}
+.bottom{
+	width:1000px;
+	height:55px; _margin-top:-8px;
+}

@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+.big{ width:1200px; height:auto; margin:0px auto; overflow:hidden;color:#333333;}
+.index_content1{ width:1000px; height:195px; background: #e0e1e3 url(../images/index/index_1.jpg) no-repeat; position:relative;}
+.index_content2{ width:1000px; height:122px; background:#bfbfbf; padding-top:20px;}
+.I_title{ width:500px; font-size:16px;   margin-left:152px;}
+.I_content{ width:695px; height:96px; margin-left:152px;margin-top:5px; line-height:22px;text-align:justify;text-justify:inter-ideograph; position:relative; }
+.more{
+	width:50px;
+	height:20px;
+	right:0px;
+	bottom:8px;
+	font-size:10px;
+	position:absolute;
+	text-align: right;
+}
+.ww{ width:32px; height:32px; position:absolute; left:656px; top:78px;}
+.outlook{ width:138px; height:28px; position:absolute; left:662px; top:118px;}
+
+/***************************************滚动********************************/
+.run li{width:105px; height:100px; float:left; margin-left:5px; border:1px solid #dee0df;}

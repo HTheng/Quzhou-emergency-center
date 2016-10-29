@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+body{margin:0px auto; width:100%; padding:0px; background:#cccccc; font-size:12px; font-family:Arial, Helvetica, sans-serif; }
+body,td,th {
+	font-size: 12px;
+}
+
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,p,blockquote,th,td,img{margin:0; padding:0px;}
+ol, ul,li {list-style-image:none;list-style-position:outside;list-style-type:none;}
+a {blr:expression(this.onFocus=this.blur())}
+a {outline: none;}
+a:active {}
+a:link{text-decoration:none;  }
+a:visited{ text-decoration:none;}
+a:hover{ text-decoration:none;}
+a:active{text-decoration:none;}
+
+/***********
+a:link{
+	font-size:12px;
+	text-decoration:none;
+	color: #000;
+}
+a:visited{
+	font-size:12px;
+	text-decoration:none;
+	color: #000;
+}
+a:hover{font-size:12px;color:#3f9405;text-decoration:none; }
+a:active{
+	font-size:12px;
+	text-decoration:none;
+	font-weight: normal;
+}
+*********/
+
+
+/*p{ text-indent:2em; } */
+
