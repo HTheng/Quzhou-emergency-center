@@ -6,7 +6,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-
 <link rel="stylesheet" href="css/footer.css" type="text/css">
 <link href="css/content.css" rel="stylesheet" type="text/css" />
 <link href="images/zhirui.css" rel="stylesheet" type="text/css" />
@@ -34,7 +33,7 @@
                          rs.open sql,conn,1,1
                          Dim Page
                             Page=Request("Page")                            
-                            PageSize =10                         
+                            PageSize =8                        
                             Rs.PageSize = PageSize               
                             Total=Rs.RecordCount               
                             PGNum=Rs.PageCount               
@@ -50,9 +49,9 @@
                              if not(rs.eof and rs.bof)  then
                              do while not rs.eof And k<Rs.PageSize
                         %>  
-                             <li><span style="float:right;"><%=GetPostTimeL(rs("ID"))%></span><a href="News_show.asp?id=<%=rs("id")%>" title="<%=rs("NewsTitle")%>" target="_blank"><%
-                                        if len(rs("NewsTitle"))>34 then
-                                        response.Write(left(rs("NewsTitle"),30)&"...")
+                             <li><span style="float:right;"><%=GetPostTimeL(rs("ID"))%></span><a href="Inform_detail.asp?id=<%=rs("id")%>" title="<%=rs("NewsTitle")%>" target="_blank"><%
+                                        if len(rs("NewsTitle"))>18 then
+                                        response.Write(left(rs("NewsTitle"),18)&"...")
                                         else
                                         response.Write(rs("NewsTitle"))
                                         end if
@@ -70,7 +69,7 @@
                          </ul>
                              
                       </div>
-                      <div class="lowerRight"><a>更多</a></div>
+                      <div class="lowerRight"><a href="Inform.asp" title="更多" target="_self">更多</a></div>
         </td>
         </tr>
     </table>
@@ -86,7 +85,7 @@
                          rs.open sql,conn,1,1
                          Dim Page1
                             Page1=Request("Page")                            
-                            PageSize =10                         
+                            PageSize =8                     
                             Rs.PageSize = PageSize               
                             Total=Rs.RecordCount               
                             PGNum=Rs.PageCount               
@@ -102,9 +101,9 @@
                              if not(rs.eof and rs.bof)  then
                              do while not rs.eof And k<Rs.PageSize
                         %>  
-                             <li><span style="float:right;"><%=GetPostTimeL(rs("ID"))%></span><a href="News_show.asp?id=<%=rs("id")%>" title="<%=rs("NewsTitle")%>" target="_blank"><%
-                                        if len(rs("NewsTitle"))>34 then
-                                        response.Write(left(rs("NewsTitle"),30)&"...")
+                             <li><span style="float:right;"><%=GetPostTimeL(rs("ID"))%></span><a href="Inform_detail.asp?id=<%=rs("id")%>" title="<%=rs("NewsTitle")%>" target="_blank"><%
+                                        if len(rs("NewsTitle"))>18 then
+                                        response.Write(left(rs("NewsTitle"),18)&"...")
                                         else
                                         response.Write(rs("NewsTitle"))
                                         end if
@@ -121,7 +120,7 @@
                         %>
                          </ul>
             </div>
-            <div class="lowerRight"><a>更多</a></div>
+            <div class="lowerRight"><a href="Inform.asp" title="更多" target="_blank">更多</a></div>
         </div>
         <div style="width:334px; float:left;">
         	<div class="ind_title">>急救动态</div>
@@ -134,7 +133,7 @@
                          rs.open sql,conn,1,1
                          Dim Page2
                             Page2=Request("Page")                            
-                            PageSize =4                         
+                            PageSize =8                    
                             Rs.PageSize = PageSize               
                             Total=Rs.RecordCount               
                             PGNum=Rs.PageCount               
@@ -150,9 +149,9 @@
                              if not(rs.eof and rs.bof)  then
                              do while not rs.eof And k<Rs.PageSize
                         %>  
-                             <li><span style="float:right;"><%=GetPostTimeL(rs("ID"))%></span><a href="News_show.asp?id=<%=rs("id")%>" title="<%=rs("NewsTitle")%>" target="_blank"><%
-                                        if len(rs("NewsTitle"))>34 then
-                                        response.Write(left(rs("NewsTitle"),30)&"...")
+                             <li><span style="float:right;"><%=GetPostTimeL(rs("ID"))%></span><a href="Dynamic_detail.asp?id=<%=rs("id")%>" title="<%=rs("NewsTitle")%>" target="_blank"><%
+                                        if len(rs("NewsTitle"))>18 then
+                                        response.Write(left(rs("NewsTitle"),18)&"...")
                                         else
                                         response.Write(rs("NewsTitle"))
                                         end if
@@ -169,7 +168,7 @@
                         %>
                          </ul>
             </div>
-            <div class="lowerRight"><a>更多</a></div>
+            <div class="lowerRight"><a href="Dynamic.asp" target="_self" title="更多">更多</a></div>
         </div>
         <div style="width:334px; float:right;">
         	<div class="ind_title">>政务信息</div>
@@ -182,7 +181,7 @@
                          rs.open sql,conn,1,1
                          Dim Page3
                             Page3=Request("Page")                            
-                            PageSize =4                         
+                            PageSize =8                      
                             Rs.PageSize = PageSize               
                             Total=Rs.RecordCount               
                             PGNum=Rs.PageCount               
@@ -198,9 +197,9 @@
                              if not(rs.eof and rs.bof)  then
                              do while not rs.eof And k<Rs.PageSize
                         %>  
-                             <li><span style="float:right;"><%=GetPostTimeL(rs("ID"))%></span><a href="News_show.asp?id=<%=rs("id")%>" title="<%=rs("NewsTitle")%>" target="_blank"><%
-                                        if len(rs("NewsTitle"))>34 then
-                                        response.Write(left(rs("NewsTitle"),30)&"...")
+                             <li><span style="float:right;"><%=GetPostTimeL(rs("ID"))%></span><a href="Inform_detail.asp?id=<%=rs("id")%>" title="<%=rs("NewsTitle")%>" target="_blank"><%
+                                        if len(rs("NewsTitle"))>18 then
+                                        response.Write(left(rs("NewsTitle"),18)&"...")
                                         else
                                         response.Write(rs("NewsTitle"))
                                         end if
@@ -217,7 +216,7 @@
                         %>
                          </ul>
             </div>
-            <div class="lowerRight"><a>更多</a></div>
+            <div class="lowerRight"><a href="Inform.asp" target="_self" title="更多">更多</a></div>
         </div>
       <div style=" clear:both;"></div>
       </div>
@@ -233,11 +232,11 @@
                 <ul class="ind_li">
 						  <%
                          set rs=server.CreateObject("ADODB.Recordset")
-                         sql="select * from newsinfo where classid=87 order by NewsOrder DESC"
+                         sql="select * from newsinfo where classid=89 order by NewsOrder DESC"
                          rs.open sql,conn,1,1
                          Dim Page4
                             Page4=Request("Page")                            
-                            PageSize =10                         
+                            PageSize =8                         
                             Rs.PageSize = PageSize               
                             Total=Rs.RecordCount               
                             PGNum=Rs.PageCount               
@@ -253,9 +252,9 @@
                              if not(rs.eof and rs.bof)  then
                              do while not rs.eof And k<Rs.PageSize
                         %>  
-                             <li><span style="float:right;"><%=GetPostTimeL(rs("ID"))%></span><a href="News_show.asp?id=<%=rs("id")%>" title="<%=rs("NewsTitle")%>" target="_blank"><%
-                                        if len(rs("NewsTitle"))>34 then
-                                        response.Write(left(rs("NewsTitle"),30)&"...")
+                             <li><span style="float:right;"><%=GetPostTimeL(rs("ID"))%></span><a href="Dynamic_knowledge_detail.asp?id=<%=rs("id")%>" title="<%=rs("NewsTitle")%>" target="_blank"><%
+                                        if len(rs("NewsTitle"))>18 then
+                                        response.Write(left(rs("NewsTitle"),18)&"...")
                                         else
                                         response.Write(rs("NewsTitle"))
                                         end if
@@ -272,19 +271,19 @@
                         %>
                          </ul>
             </div>
-            <div class="lowerRight"><a>更多</a></div>
+            <div class="lowerRight"><a href="Dynamic_knowledge.asp" target="_self" title="更多">更多</a></div>
         </div>
         
         
         
         <div style="width:334px; float:left;">
-        	<div class="ind_title">>急救知识</div>
+        	<div class="ind_title">>培训教育</div>
             <div class="ind_img_01"></div>
             <div class="ind_notice">
                 <ul class="ind_li">
 						  <%
                          set rs=server.CreateObject("ADODB.Recordset")
-                         sql="select * from newsinfo where classid=87 order by NewsOrder DESC"
+                         sql="select * from newsinfo where classid=90 order by NewsOrder DESC"
                          rs.open sql,conn,1,1
                          Dim Page5
                             Page5=Request("Page")                            
@@ -304,9 +303,9 @@
                              if not(rs.eof and rs.bof)  then
                              do while not rs.eof And k<Rs.PageSize
                         %>  
-                             <li><span style="float:right;"><%=GetPostTimeL(rs("ID"))%></span><a href="News_show.asp?id=<%=rs("id")%>" title="<%=rs("NewsTitle")%>" target="_blank"><%
-                                        if len(rs("NewsTitle"))>34 then
-                                        response.Write(left(rs("NewsTitle"),30)&"...")
+                             <li><span style="float:right;"><%=GetPostTimeL(rs("ID"))%></span><a href="Training_detail.asp?id=<%=rs("id")%>" title="<%=rs("NewsTitle")%>" target="_blank"><%
+                                        if len(rs("NewsTitle"))>18 then
+                                        response.Write(left(rs("NewsTitle"),18)&"...")
                                         else
                                         response.Write(rs("NewsTitle"))
                                         end if
@@ -323,18 +322,18 @@
                         %>
                          </ul>
             </div>
-            <div class="lowerRight"><a>更多</a></div>
+            <div class="lowerRight"><a href="Training.asp" target="_self" title="更多">更多</a></div>
         </div>
         
         
         <div style="width:334px; float:right;">
-        	<div class="ind_title">>政务信息</div>
+        	<div class="ind_title">>党团建设</div>
             <div class="ind_img_03"></div>
             <div class="ind_notice">
                 <ul class="ind_li">
 						  <%
                          set rs=server.CreateObject("ADODB.Recordset")
-                         sql="select * from newsinfo where classid=88 order by NewsOrder DESC"
+                         sql="select * from newsinfo where classid=91 order by NewsOrder DESC"
                          rs.open sql,conn,1,1
                          Dim Page6
                             Page6=Request("Page")                            
@@ -354,9 +353,9 @@
                              if not(rs.eof and rs.bof)  then
                              do while not rs.eof And k<Rs.PageSize
                         %>  
-                             <li><span style="float:right;"><%=GetPostTimeL(rs("ID"))%></span><a href="News_show.asp?id=<%=rs("id")%>" title="<%=rs("NewsTitle")%>" target="_blank"><%
-                                        if len(rs("NewsTitle"))>34 then
-                                        response.Write(left(rs("NewsTitle"),30)&"...")
+                             <li><span style="float:right;"><%=GetPostTimeL(rs("ID"))%></span><a href="Party_detail.asp?id=<%=rs("id")%>" title="<%=rs("NewsTitle")%>" target="_blank"><%
+                                        if len(rs("NewsTitle"))>18 then
+                                        response.Write(left(rs("NewsTitle"),18)&"...")
                                         else
                                         response.Write(rs("NewsTitle"))
                                         end if
@@ -373,7 +372,7 @@
                         %>
                          </ul>
             </div>
-            <div class="lowerRight"><a>更多</a></div>
+            <div class="lowerRight"><a href="Party.asp" target="_self" title="更多">更多</a></div>
         </div>
         
      </div>
