@@ -15,13 +15,15 @@
 <meta name="Author" content="<%=SiteAuthor%>" />
 <title><%=SiteName%></title>
 <style>
-  dl { width:662px;height:234px; overflow:hidden; position:relative;  }
-  dd {   margin:0;width:662px;height:234px;overflow:hidden;  }
-   dt {   position:absolute;left:3px;top:50px;  }
-dl a{ float:left; display:block;margin:1px;width:20px;height:20px;text-align:center;font:700 12px/20px "宋体",sans-serif;color:#fff;text-decoration:none;background:#666;border:1px solid #fff; }
-   a:hover {background:#000} 
-</style>
 
+#move{background:#cc0;width:662px;}
+#move a{position:absolute;}
+#move img{width:662px;}
+.num {position:absolute;}
+.num .nor {background:#6CC; text-decoration:none;}
+.num .act {background:#F60; color: #fff;text-decoration: none;}
+</style>
+<SCRIPT language="javascript" src="Include/js.js"></SCRIPT>
 </head>
 <body>
 
@@ -29,80 +31,23 @@ dl a{ float:left; display:block;margin:1px;width:20px;height:20px;text-align:cen
 	<div class="index_body">
     <table width="1004" border="0" cellspacing="0" cellpadding="0">
         <tr>
-        <td width="662"><dl>
-               <%
-                         set rs=server.CreateObject("ADODB.Recordset")
-                         sql="select * from SiteAds"
-                         rs.open sql,conn,1,1
-                         Dim Page12
-                            Page12=Request("Page")                            
-                            PageSize =5                  
-                            Rs.PageSize = PageSize               
-                            Total=Rs.RecordCount               
-                            PGNum=Rs.PageCount               
-                            If Page12="" Or clng(Page12)<1 Then Page12=1               
-                            If Clng(Page12) > PGNum Then Page12=PGNum              
-                            If PGNum>0 Then Rs.AbsolutePage=Page12                         
-                            k=0   
-                            if Total=0 then
-                           
-                            else
-							 response.Write("<dt>") 
-                             if not(rs.eof and rs.bof)  then
-                             do while not rs.eof And k<Rs.PageSize
-                        %>  
-                        <a href="#<%=rs("AdsRemark")%>" title=""><%=rs("AdsRemark")%></a>
-                         <%
-						 
-                            k=k+1
-                            if k mod 1=0 then
-                            end if
-                            rs.movenext()
-                            If Rs.Eof Then Exit Do
-                            loop
-							response.Write("</dt>") 
-                            end if
-                            end if
-                        %>
-              
-              
-        
-              <%
-                         set rs=server.CreateObject("ADODB.Recordset")
-                         sql="select * from SiteAds"
-                         rs.open sql,conn,1,1
-                         Dim Page10
-                            Page10=Request("Page")                            
-                            PageSize =5                  
-                            Rs.PageSize = PageSize               
-                            Total=Rs.RecordCount               
-                            PGNum=Rs.PageCount               
-                            If Page10="" Or clng(Page10)<1 Then Page10=1               
-                            If Clng(Page10) > PGNum Then Page10=PGNum              
-                            If PGNum>0 Then Rs.AbsolutePage=Page10                         
-                            k=0   
-                            if Total=0 then
-                           
-                            else
-							 response.Write("<dd>") 
-                             if not(rs.eof and rs.bof)  then
-                             do while not rs.eof And k<Rs.PageSize
-                        %>  
-                            <img src="<%=rs("AdsPicUrl")%>" alt="" id="<%=rs("AdsRemark")%>" width="662" height="234" />
-                         <%
-						 
-                            k=k+1
-                            if k mod 1=0 then
-                            end if
-                            rs.movenext()
-                            If Rs.Eof Then Exit Do
-                            loop
-							response.Write("</dd>") 
-                            end if
-                            end if
-                        %>
-        
-        </dl>
+        <td width="662" valign="top">
+              <div class="num">
+	    <a class="act" id=a0 onmouseover=clearAuto(); onclick=Mea(0); onmouseout=setAuto() href="#" target=_self>1</a> 
+		<a class="nor" id=a1 onmouseover=clearAuto(); onclick=Mea(1); onmouseout=setAuto() href="#" target=_self>2</a> 
+		<a class="nor" id=a2 onmouseover=clearAuto(); onclick=Mea(2); onmouseout=setAuto() href="#" target=_self>3</a>
+		<a class="nor" id=a3 onmouseover=clearAuto(); onclick=Mea(3); onmouseout=setAuto() href="#" target=_self>4</a>
+		<a class="nor" id=a4 onmouseover=clearAuto(); onclick=Mea(4); onmouseout=setAuto() href="#" target=_self>5</a>
+	  </div>
+    
+	<div id="move">
+    <a href="javascript:;" target="_blank"><img id="pc_0" style="DISPLAY: block" height="234" src="img_1.png"/></a>
+	<a href="javascript:;" target="_blank"><img id="pc_1" style="DISPLAY: none" height="234" src="img01.jpg"/></a>
+	<a href="javascript:;" target="_blank"><img id="pc_2" style="DISPLAY: none" height="234" src="img03.jpg"/></a>
+	<a href="javascript:;" target="_blank"><img id="pc_3" style="DISPLAY: none" height="234" src="img02.jpg" /></a>
+	<a href="javascript:;" target="_blank"><img id="pc_4" style="DISPLAY: none" height="234" src="img03.jpg" /></a>
+	</div>
+     
      </td>
         <td width="342" valign="top">
         <div class="ind_title"><div style=" margin-left:4px;">>通知公告</div></div>
