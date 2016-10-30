@@ -15,11 +15,11 @@
 <meta name="Author" content="<%=SiteAuthor%>" />
 <title><%=SiteName%></title>
 <style>
-  dl { width:662px;height:234px; overflow:hidden;  }
+  dl { width:662px;height:234px; overflow:hidden; position:relative;  }
   dd {   margin:0;width:662px;height:234px;overflow:hidden;  }
    dt {   position:absolute;left:3px;top:50px;  }
- /* a { float:left; display:block;margin:1px;width:20px;height:20px;text-align:center;font:700 12px/20px "宋体",sans-serif;color:#fff;text-decoration:none;background:#666;border:1px solid #fff;filter:alpha(opacity=40);opacity:.4;   }
-   a:hover {background:#000}*/
+dl a{ float:left; display:block;margin:1px;width:20px;height:20px;text-align:center;font:700 12px/20px "宋体",sans-serif;color:#fff;text-decoration:none;background:#666;border:1px solid #fff; }
+   a:hover {background:#000} 
 </style>
 
 </head>
@@ -30,13 +30,50 @@
     <table width="1004" border="0" cellspacing="0" cellpadding="0">
         <tr>
         <td width="662"><dl>
+               <%
+                         set rs=server.CreateObject("ADODB.Recordset")
+                         sql="select * from SiteAds"
+                         rs.open sql,conn,1,1
+                         Dim Page12
+                            Page12=Request("Page")                            
+                            PageSize =5                  
+                            Rs.PageSize = PageSize               
+                            Total=Rs.RecordCount               
+                            PGNum=Rs.PageCount               
+                            If Page12="" Or clng(Page12)<1 Then Page12=1               
+                            If Clng(Page12) > PGNum Then Page12=PGNum              
+                            If PGNum>0 Then Rs.AbsolutePage=Page12                         
+                            k=0   
+                            if Total=0 then
+                           
+                            else
+							 response.Write("<dt>") 
+                             if not(rs.eof and rs.bof)  then
+                             do while not rs.eof And k<Rs.PageSize
+                        %>  
+                        <a href="#<%=rs("AdsRemark")%>" title=""><%=rs("AdsRemark")%></a>
+                         <%
+						 
+                            k=k+1
+                            if k mod 1=0 then
+                            end if
+                            rs.movenext()
+                            If Rs.Eof Then Exit Do
+                            loop
+							response.Write("</dt>") 
+                            end if
+                            end if
+                        %>
+              
+              
+        
               <%
                          set rs=server.CreateObject("ADODB.Recordset")
                          sql="select * from SiteAds"
                          rs.open sql,conn,1,1
                          Dim Page10
                             Page10=Request("Page")                            
-                            PageSize =8                        
+                            PageSize =5                  
                             Rs.PageSize = PageSize               
                             Total=Rs.RecordCount               
                             PGNum=Rs.PageCount               
@@ -45,9 +82,7 @@
                             If PGNum>0 Then Rs.AbsolutePage=Page10                         
                             k=0   
                             if Total=0 then
-                            response.Write("<li>") 
-                            response.Write("无记录...") 
-                            response.Write("</li>")
+                           
                             else
 							 response.Write("<dd>") 
                              if not(rs.eof and rs.bof)  then
@@ -55,13 +90,14 @@
                         %>  
                             <img src="<%=rs("AdsPicUrl")%>" alt="" id="<%=rs("AdsRemark")%>" width="662" height="234" />
                          <%
-						 response.Write("</dd>") 
+						 
                             k=k+1
                             if k mod 1=0 then
                             end if
                             rs.movenext()
                             If Rs.Eof Then Exit Do
                             loop
+							response.Write("</dd>") 
                             end if
                             end if
                         %>
