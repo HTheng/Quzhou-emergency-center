@@ -70,16 +70,16 @@
         top:40%;
 		left: 0px;
         POSITION: fixed;
-        WIDTH: 50px; 
-        HEIGHT: 60px;
-		z-index:10;
+        WIDTH: 165px; 
+        HEIGHT: 230px;
+		z-index:9;
     }
 	
 
 
 /**** new *****/
 .r_120{ width:354px; height:42px; margin-bottom:20px; margin-right:80px;}
-.Navigation{ width:221px; height:30px; background:url(ind/daohang.gif) top left no-repeat;}
+.Navigation{ width:221px; height:30px; background:url(../images/ind/daohang.gif) top left no-repeat;}
 
 
 .kf{
@@ -107,11 +107,10 @@
 
 
 #nav li ul {
-	width:90px;
 	display: none; 
 	position: absolute;
-	margin-top:33px !important;
-	
+	margin-top:38px !important;
+	z-index:8;
 }
 #nav li ul li {
 	float: none;
@@ -128,3 +127,5 @@
 
 
 /*-------------- END 导航 nav ---------------------- */
+
+.bt a{color:#ffffff; }

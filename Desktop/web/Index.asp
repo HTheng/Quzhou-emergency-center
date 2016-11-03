@@ -16,12 +16,12 @@
 <title><%=SiteName%></title>
 <style>
 
-#move{background:#cc0;width:662px;}
+#move{background:#cc0;width:662px; z-index:-1;}
 #move a{position:absolute;}
-#move img{width:662px;}
-.num {position:absolute;}
-.num .nor {background:#6CC; text-decoration:none;}
-.num .act {background:#F60; color: #fff;text-decoration: none;}
+#move img{width:662px; height:234px;}
+.num { position:absolute; bottom:10px; right:10px; z-index:5;}
+.num a { float:left; display:block;margin:1px;width:20px;height:20px;text-align:center;font:700 12px/20px "宋体",sans-serif;color:#fff;text-decoration:none;background:#666;border:1px solid #fff;filter:alpha(opacity=40);opacity:.4;   }
+.num a:hover {background:#000}
 </style>
 <SCRIPT language="javascript" src="Include/js.js"></SCRIPT>
 </head>
@@ -32,7 +32,8 @@
     <table width="1004" border="0" cellspacing="0" cellpadding="0">
         <tr>
         <td width="662" valign="top">
-              <div class="num">
+        <div style="position:relative; height:234px;">
+        <div class="num">
 	    <a class="act" id=a0 onmouseover=clearAuto(); onclick=Mea(0); onmouseout=setAuto() href="#" target=_self>1</a> 
 		<a class="nor" id=a1 onmouseover=clearAuto(); onclick=Mea(1); onmouseout=setAuto() href="#" target=_self>2</a> 
 		<a class="nor" id=a2 onmouseover=clearAuto(); onclick=Mea(2); onmouseout=setAuto() href="#" target=_self>3</a>
@@ -41,13 +42,41 @@
 	  </div>
     
 	<div id="move">
-    <a href="javascript:;" target="_blank"><img id="pc_0" style="DISPLAY: block" height="234" src="img_1.png"/></a>
-	<a href="javascript:;" target="_blank"><img id="pc_1" style="DISPLAY: none" height="234" src="img01.jpg"/></a>
-	<a href="javascript:;" target="_blank"><img id="pc_2" style="DISPLAY: none" height="234" src="img03.jpg"/></a>
-	<a href="javascript:;" target="_blank"><img id="pc_3" style="DISPLAY: none" height="234" src="img02.jpg" /></a>
-	<a href="javascript:;" target="_blank"><img id="pc_4" style="DISPLAY: none" height="234" src="img03.jpg" /></a>
+        <%
+                         set rs=server.CreateObject("ADODB.Recordset")
+                         sql="select * from SiteAds order by AdsRemark"
+                         rs.open sql,conn,1,1
+                         Dim Page12
+                            Page12=Request("Page")                            
+                            PageSize =5                  
+                            Rs.PageSize = PageSize               
+                            Total=Rs.RecordCount               
+                            PGNum=Rs.PageCount               
+                            If Page12="" Or clng(Page12)<1 Then Page12=1               
+                            If Clng(Page12) > PGNum Then Page12=PGNum              
+                            If PGNum>0 Then Rs.AbsolutePage=Page12                         
+                            k=0   
+                            if Total=0 then
+                            else
+                             if not(rs.eof and rs.bof)  then
+                             do while not rs.eof And k<Rs.PageSize
+                        %>  
+                         <a href="javascript:;" target="_self"><img id="pc_<%=rs("AdsRemark")%>" style="DISPLAY: block" src="<%=rs("AdsPicUrl")%>"/></a>
+                         <%
+						 
+                            k=k+1
+                            if k mod 1=0 then
+                            end if
+                            rs.movenext()
+                            If Rs.Eof Then Exit Do
+                            loop
+                            end if
+                            end if
+                        %>
+              
+  
 	</div>
-     
+   </div>
      </td>
         <td width="342" valign="top">
         <div class="ind_title"><div style=" margin-left:4px;">>通知公告</div></div>

@@ -1,4 +1,8 @@
-﻿<table width='1200' border='0' align='center' cellpadding='0' cellspacing='0' style=" background: url(images/ind/top_bg.gif) repeat-y;">
+﻿
+
+
+
+<table width='1200' border='0' align='center' cellpadding='0' cellspacing='0' style=" background: url(images/ind/top_bg.gif) repeat-y;">
 <tr><td width='587' align="right"><img src="/Images/ind/logo.gif" width="489" height="110" /></td>
 <td align="right" valign="bottom">
 <div class="r_120"><img src="/Images/ind/r_120.gif" width="354" height="42" /></div>
@@ -51,5 +55,4 @@
 
  
 <div id="flow_wbox">
-            这是一个悬浮窗口
-</div>
+<img src="../images/fdgg.jpg" width="165" height="230" /></div>
